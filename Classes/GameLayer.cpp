@@ -7,10 +7,12 @@
 
 #include "GameLayer.hpp"
 
+#define WINSIZE Director::getInstance()->getWinSize();
+
 USING_NS_CC;
 
 Scene* GameLayer::createScene(){
-    auto scene = Scene::create();
+    auto scene = Scene::createWithPhysics();
     auto layer = GameLayer::create();
     scene->addChild(layer);
     
@@ -19,5 +21,25 @@ Scene* GameLayer::createScene(){
 
 bool GameLayer::init(){
     if(!Layer::init())return false;
+    this->scheduleUpdate();
     return true;
 }
+
+void GameLayer::onEnter(){
+    Layer::onEnter();
+    
+    //for(int i=0;i<1500;i+=100)for(int j=0;j<1000;j+=100)createEnemy(Point(i,j));
+}
+
+void GameLayer::createEnemy(cocos2d::Point position){
+    auto enemy = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/P_0.png");
+    enemy->setPosition(position);
+    enemy->setTag(T_Enemy);
+    
+    addChild(enemy,Z_Enemy);
+}
+
+void GameLayer::update(float fream){
+    createEnemy(Point(random(0, 1000),random(0, 1000)));
+}
+

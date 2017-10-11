@@ -36,6 +36,9 @@ void GameLayer::createEnemy(cocos2d::Point position){
     enemy->setPosition(position);
     enemy->setTag(T_Enemy);
     
+    auto move = MoveTo::create(3.0f, position+Point(10000,10000));
+    enemy->runAction(move);
+    
     addChild(enemy,Z_Enemy);
 }
 

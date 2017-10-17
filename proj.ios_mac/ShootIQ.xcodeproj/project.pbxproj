@@ -14,8 +14,12 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
 		3B00393E1F8DC8DB007C8759 /* P_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00393C1F8DC8DB007C8759 /* P_0.png */; };
+		3B13BFB31F95B146009DBAEA /* pointer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B13BFB11F95B146009DBAEA /* pointer.jpg */; };
+		3B13BFBA1F95E3C0009DBAEA /* ScoreHistory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B13BFB81F95E3C0009DBAEA /* ScoreHistory.cpp */; };
+		3B13BFBB1F95E3C0009DBAEA /* ScoreHistory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B13BFB81F95E3C0009DBAEA /* ScoreHistory.cpp */; };
 		3B1A1FE31F8D04D20099BEF0 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A1FE11F8D04D20099BEF0 /* GameLayer.cpp */; };
 		3B1A1FE41F8D04D20099BEF0 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A1FE11F8D04D20099BEF0 /* GameLayer.cpp */; };
+		3BAD2B6B1F94928E00ED63E5 /* monsterball.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BAD2B691F94928D00ED63E5 /* monsterball.png */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
@@ -114,8 +118,12 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		3B00393C1F8DC8DB007C8759 /* P_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P_0.png; sourceTree = "<group>"; };
+		3B13BFB11F95B146009DBAEA /* pointer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pointer.jpg; sourceTree = "<group>"; };
+		3B13BFB81F95E3C0009DBAEA /* ScoreHistory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreHistory.cpp; sourceTree = "<group>"; };
+		3B13BFB91F95E3C0009DBAEA /* ScoreHistory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScoreHistory.hpp; sourceTree = "<group>"; };
 		3B1A1FE11F8D04D20099BEF0 /* GameLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
 		3B1A1FE21F8D04D20099BEF0 /* GameLayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameLayer.hpp; sourceTree = "<group>"; };
+		3BAD2B691F94928D00ED63E5 /* monsterball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monsterball.png; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -289,6 +297,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3B13BFB11F95B146009DBAEA /* pointer.jpg */,
+				3BAD2B691F94928D00ED63E5 /* monsterball.png */,
 				3B00393C1F8DC8DB007C8759 /* P_0.png */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
@@ -304,6 +314,8 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				3B1A1FE11F8D04D20099BEF0 /* GameLayer.cpp */,
 				3B1A1FE21F8D04D20099BEF0 /* GameLayer.hpp */,
+				3B13BFB81F95E3C0009DBAEA /* ScoreHistory.cpp */,
+				3B13BFB91F95E3C0009DBAEA /* ScoreHistory.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -465,9 +477,11 @@
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				3BAD2B6B1F94928E00ED63E5 /* monsterball.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				3B13BFB31F95B146009DBAEA /* pointer.jpg in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				3B00393E1F8DC8DB007C8759 /* P_0.png in Resources */,
@@ -502,6 +516,7 @@
 				3B1A1FE31F8D04D20099BEF0 /* GameLayer.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				3B13BFBA1F95E3C0009DBAEA /* ScoreHistory.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
@@ -514,6 +529,7 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				3B1A1FE41F8D04D20099BEF0 /* GameLayer.cpp in Sources */,
+				3B13BFBB1F95E3C0009DBAEA /* ScoreHistory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@ protected:
     };
     
     void createEnemy(cocos2d::Point);
-    void createchacheball(cocos2d::Point);
+    void createchacheball(cocos2d::Point,cocos2d::Point);
     
 public:
     static cocos2d::Scene* createScene();
@@ -31,8 +31,8 @@ public:
     CREATE_FUNC(GameLayer);
     void pushEnemy(float);
     virtual void onEnter();
-    void onKeyPressed(cocos2d::EventKeyboard::KeyCode , cocos2d::Event*);
-    void onKeyReleased(cocos2d::EventKeyboard::KeyCode, cocos2d::Event*);
+    bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
+    void onMouseMove(cocos2d::Event*);
 };
 
 #endif /* GameLayer_hpp */

@@ -6,6 +6,7 @@
 //
 
 #include "GameLayer.hpp"
+#include "math.h"
 
 #define WINSIZE Director::getInstance()->getWinSize();
 
@@ -13,6 +14,9 @@ USING_NS_CC;
 
 Scene* GameLayer::createScene(){
     auto scene = Scene::createWithPhysics();
+    auto _bg = LayerColor::create(Color4B::GRAY,  Director::getInstance()->getVisibleSize().width,  Director::getInstance()->getVisibleSize().height);
+    scene->addChild(_bg);
+    
     auto layer = GameLayer::create();
     scene->addChild(layer);
     
@@ -21,12 +25,15 @@ Scene* GameLayer::createScene(){
 
 bool GameLayer::init(){
     if(!Layer::init())return false;
-    this->schedule(schedule_selector(GameLayer::pushEnemy), 1);
+    this->schedule(schedule_selector(GameLayer::pushEnemy), 0.3);
     
-    auto listener = EventListenerKeyboard::create();
-    listener->onKeyPressed = CC_CALLBACK_2(GameLayer::onKeyPressed, this);
-     listener->onKeyReleased = CC_CALLBACK_2(GameLayer::onKeyReleased, this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->onTouchBegan = CC_CALLBACK_2(GameLayer::onTouchBegan, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority
+    (listener, this);
+    auto mouselistener = EventListenerMouse::create();
+ //   mouselistener->onMouseMove=CC_CALLBACK_1(GameLayer::onMouseMove, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouselistener, this);
 
     //this->scheduleUpdate();
     return true;
@@ -39,7 +46,7 @@ void GameLayer::onEnter(){
 }
 
 void GameLayer::createEnemy(cocos2d::Point position){
-    auto enemy = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/P_0.png");
+    auto enemy = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/P_"+std::to_string(random(0, 4)*50)+".png");
     enemy->setPosition(position);
     enemy->setTag(T_Enemy);
     
@@ -49,26 +56,30 @@ void GameLayer::createEnemy(cocos2d::Point position){
     addChild(enemy,Z_Enemy);
 }
 
-void GameLayer::createchacheball(cocos2d::Point position){
+void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
     auto ball = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/monsterball.png");
     ball->setPosition(position);
     ball->setScale(0.1);
     ball->setTag(T_Ball);
-    
-    auto move = MoveTo::create(0.75f, position+Point(0,600));
+    auto div = moved-position;
+    auto move = MoveBy::create(sqrt(1000000+pow((1000/div.y)*div.x,2))*0.0015f, Point(1000/div.y*div.x,1000));
     ball->runAction(move);
     
     addChild(ball,Z_Ball);
 }
 
 void GameLayer::pushEnemy(float d){
-    createEnemy(Point(-50,random(100,1000)));
+    auto size = Director::getInstance()->getWinSize();
+    createEnemy(Point(-50,random(200,(int)size.height)));
 }
 
- void GameLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event){
-    createchacheball(Point(700,0));
+bool GameLayer::onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent){
+    auto point = pTouch->getLocation();
+    createchacheball(Point(Director::getInstance()->getWinSize().width/2,5),point);
+    return true;
 }
 
-void GameLayer::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event){
-    
+void onMouseMove(cocos2d::Event* event){
+    auto mouse = (EventMouse*)event;
+    Point(mouse->getCursorX(), mouse->getCursorY());
 }

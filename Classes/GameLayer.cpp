@@ -32,7 +32,7 @@ void GameLayer::onEnter(){
 }
 
 void GameLayer::createEnemy(cocos2d::Point position){
-    auto enemy = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/P_0.png");
+    auto enemy = Sprite::create("P_0.png");
     enemy->setPosition(position);
     enemy->setTag(T_Enemy);
     

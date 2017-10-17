@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "GameLayer.hpp"
+#include "StartLayer.hpp"
 
 USING_NS_CC;
 
@@ -74,8 +75,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     //基本的にここに追加
-    auto scene = GameLayer::createScene();
-    director->runWithScene(scene);
+    
+	auto start = StartLayer::createScene();
+	director->runWithScene(start);
+	
+	//auto scene = GameLayer::createScene();
+    //director->runWithScene(scene);
     
     
     

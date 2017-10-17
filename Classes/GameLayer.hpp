@@ -15,12 +15,13 @@
 class GameLayer : public cocos2d::Layer{
 protected:
     enum Tag{
-        T_Enemy,T_Ball,
+        T_Enemy,T_Ball,T_Pointer,
     };
     
     enum Zorder{
-        Z_Enemy,Z_Ball,
+        Z_Enemy,Z_Ball,Z_Pointer,
     };
+    cocos2d::Sprite* p_pointer;
     
     void createEnemy(cocos2d::Point);
     void createchacheball(cocos2d::Point,cocos2d::Point);
@@ -33,6 +34,7 @@ public:
     virtual void onEnter();
     bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
     void onMouseMove(cocos2d::Event*);
+    bool onContactBegin(cocos2d::PhysicsContact&);
 };
 
 #endif /* GameLayer_hpp */

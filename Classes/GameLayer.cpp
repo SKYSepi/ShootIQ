@@ -32,9 +32,19 @@ bool GameLayer::init(){
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority
     (listener, this);
     auto mouselistener = EventListenerMouse::create();
- //   mouselistener->onMouseMove=CC_CALLBACK_1(GameLayer::onMouseMove, this);
+    mouselistener->onMouseMove=CC_CALLBACK_1(GameLayer::onMouseMove, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouselistener, this);
 
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(GameLayer::onContactBegin, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
+    
+    auto pointer = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/pointer.png");
+    pointer->setScale(0.3);
+    p_pointer=pointer;
+    addChild(pointer,Z_Pointer);
+    
+    
     //this->scheduleUpdate();
     return true;
 }
@@ -53,7 +63,7 @@ void GameLayer::createEnemy(cocos2d::Point position){
     auto move = MoveTo::create(6.0f, position+Point(1200,0));
     enemy->runAction(move);
     
-    addChild(enemy,Z_Enemy);
+    addChild(enemy,Z_Enemy,Z_Ball);
 }
 
 void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
@@ -65,7 +75,7 @@ void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
     auto move = MoveBy::create(sqrt(1000000+pow((1000/div.y)*div.x,2))*0.0015f, Point(1000/div.y*div.x,1000));
     ball->runAction(move);
     
-    addChild(ball,Z_Ball);
+    addChild(ball,Z_Ball,T_Ball);
 }
 
 void GameLayer::pushEnemy(float d){
@@ -79,7 +89,11 @@ bool GameLayer::onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent){
     return true;
 }
 
-void onMouseMove(cocos2d::Event* event){
+void GameLayer::onMouseMove(cocos2d::Event* event){
     auto mouse = (EventMouse*)event;
-    Point(mouse->getCursorX(), mouse->getCursorY());
+   p_pointer->setPosition(Point(mouse->getCursorX(), mouse->getCursorY()));
+}
+
+bool GameLayer::onContactBegin(cocos2d::PhysicsContact& contact){
+    return true;
 }

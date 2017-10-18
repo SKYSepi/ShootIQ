@@ -7,6 +7,7 @@
 
 #include "GameLayer.hpp"
 #include "math.h"
+#include "Enemy.hpp"
 
 #define WINSIZE Director::getInstance()->getWinSize();
 
@@ -25,6 +26,7 @@ Scene* GameLayer::createScene(){
 
 bool GameLayer::init(){
     if(!Layer::init())return false;
+    for (int i=0; i<5; i++) point_array[i]=i*50;
     this->schedule(schedule_selector(GameLayer::pushEnemy), 0.3);
     initListener();
     MakePointer();
@@ -42,7 +44,12 @@ void GameLayer::createEnemy(cocos2d::Point position){
     auto p_physics = PHYSICSBODY_MATERIAL_DEFAULT;
     p_physics.restitution=0;
     p_physics.friction=0;
-    auto enemy = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/P_"+std::to_string(random(0, 4)*50)+".png");
+    
+    auto rand = random(0, 4);
+    auto point = rand*50;
+    
+    auto enemy = Enemy::create("/Users/seita/Develop/ShootIQ/Resources/P_"+std::to_string(point)+".png");
+    enemy->setUserData(&point_array[rand]);
     enemy->setPosition(position);
     enemy->setTag(T_Enemy);
     auto penemy = PhysicsBody::createBox(enemy->getContentSize(),p_physics);
@@ -71,12 +78,13 @@ void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
     ball->setScale(0.1);
     ball->setTag(T_Ball);
     auto div = moved-position;
+    auto root = sqrt(pow(div.x, 2)+pow(div.y, 2));
     //auto move = MoveBy::create(sqrt(1000000+pow((1000/div.y)*div.x,2))*0.0015f, Point(1000/div.y*div.x,1000));
     //ball->runAction(move);
     
     auto pball = PhysicsBody::createBox(ball->getContentSize(),p_physics);
     pball->setGravityEnable(false);
-    pball->applyImpulse(Point(1000/div.y*div.x,1000)*1000);
+    pball->applyImpulse(Point(div.x/root,div.y/root)*10000000);
     pball->setDynamic(true);
     pball->setRotationEnable(false);
     pball->setCategoryBitmask(2);
@@ -106,9 +114,17 @@ void GameLayer::onMouseMove(cocos2d::Event* event){
 bool GameLayer::onContactBegin(cocos2d::PhysicsContact& contact){
     
     auto bodyA = contact.getShapeA()->getBody()->getNode();
-    this->removeChild(bodyA);
-    this->removeChild(contact.getShapeB()->getBody()->getNode());
     
+    auto bodyB = contact.getShapeB()->getBody()->getNode();
+    
+    void* adr;
+    if (bodyA!=NULL && bodyA->getUserData()!=NULL) {
+        adr = bodyA->getUserData();
+    }else if (bodyB!=NULL && bodyB->getUserData()!=NULL){
+        adr = bodyB->getUserData();
+    }
+    this->removeChild(bodyA);
+    this->removeChild(bodyB);
     auto p = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/pointer.png");
     p->setPosition(100,100);
     this->addChild(p);

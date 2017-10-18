@@ -23,6 +23,7 @@ protected:
     };
     cocos2d::Sprite* p_pointer;
     
+    int point_array[5];
     void createEnemy(cocos2d::Point);
     void createchacheball(cocos2d::Point,cocos2d::Point);
     

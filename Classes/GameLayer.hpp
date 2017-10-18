@@ -35,6 +35,8 @@ public:
     bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
     void onMouseMove(cocos2d::Event*);
     bool onContactBegin(cocos2d::PhysicsContact&);
+    void MakePointer();
+    void initListener();
 };
 
 #endif /* GameLayer_hpp */

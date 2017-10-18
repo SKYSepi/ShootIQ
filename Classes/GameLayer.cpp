@@ -19,32 +19,15 @@ Scene* GameLayer::createScene(){
     
     auto layer = GameLayer::create();
     scene->addChild(layer);
-    
+    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     return scene;
 }
 
 bool GameLayer::init(){
     if(!Layer::init())return false;
     this->schedule(schedule_selector(GameLayer::pushEnemy), 0.3);
-    
-    auto listener = EventListenerTouchOneByOne::create();
-    listener->onTouchBegan = CC_CALLBACK_2(GameLayer::onTouchBegan, this);
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority
-    (listener, this);
-    auto mouselistener = EventListenerMouse::create();
-    mouselistener->onMouseMove=CC_CALLBACK_1(GameLayer::onMouseMove, this);
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouselistener, this);
-
-    auto contactListener = EventListenerPhysicsContact::create();
-    contactListener->onContactBegin = CC_CALLBACK_1(GameLayer::onContactBegin, this);
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
-    
-    auto pointer = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/pointer.png");
-    pointer->setScale(0.3);
-    p_pointer=pointer;
-    addChild(pointer,Z_Pointer);
-    
-    
+    initListener();
+    MakePointer();
     //this->scheduleUpdate();
     return true;
 }
@@ -56,26 +39,52 @@ void GameLayer::onEnter(){
 }
 
 void GameLayer::createEnemy(cocos2d::Point position){
+    auto p_physics = PHYSICSBODY_MATERIAL_DEFAULT;
+    p_physics.restitution=0;
+    p_physics.friction=0;
     auto enemy = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/P_"+std::to_string(random(0, 4)*50)+".png");
     enemy->setPosition(position);
     enemy->setTag(T_Enemy);
+    auto penemy = PhysicsBody::createBox(enemy->getContentSize(),p_physics);
+    penemy->setGravityEnable(false);
+    penemy->applyImpulse(Vec2(100000, 0));
+    penemy->setDynamic(true);
+    penemy->setRotationEnable(false);
+    penemy->setCategoryBitmask(T_Enemy);
+    penemy->setCollisionBitmask(T_Ball);
+    penemy->setContactTestBitmask(INT_MAX);
+    enemy->setPhysicsBody(penemy);
     
-    auto move = MoveTo::create(6.0f, position+Point(1200,0));
-    enemy->runAction(move);
+ //   auto move = MoveTo::create(6.0f, position+Point(500,0));
+//    enemy->runAction(move);
     
-    addChild(enemy,Z_Enemy,Z_Ball);
+    this->addChild(enemy,Z_Enemy,Z_Ball);
 }
 
 void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
+    auto p_physics = PHYSICSBODY_MATERIAL_DEFAULT;
+    p_physics.restitution=0;
+    p_physics.friction=0;
+    
     auto ball = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/monsterball.png");
     ball->setPosition(position);
     ball->setScale(0.1);
     ball->setTag(T_Ball);
     auto div = moved-position;
-    auto move = MoveBy::create(sqrt(1000000+pow((1000/div.y)*div.x,2))*0.0015f, Point(1000/div.y*div.x,1000));
-    ball->runAction(move);
+    //auto move = MoveBy::create(sqrt(1000000+pow((1000/div.y)*div.x,2))*0.0015f, Point(1000/div.y*div.x,1000));
+    //ball->runAction(move);
     
-    addChild(ball,Z_Ball,T_Ball);
+    auto pball = PhysicsBody::createBox(ball->getContentSize(),p_physics);
+    pball->setGravityEnable(false);
+    pball->applyImpulse(Point(div.x,1000)*10000);
+    pball->setDynamic(true);
+    pball->setRotationEnable(false);
+    pball->setCategoryBitmask(T_Ball);
+    pball->setCollisionBitmask(T_Enemy);
+    pball->setContactTestBitmask(INT_MAX);
+    ball->setPhysicsBody(pball);
+    
+    this->addChild(ball,Z_Ball,T_Ball);
 }
 
 void GameLayer::pushEnemy(float d){
@@ -95,5 +104,34 @@ void GameLayer::onMouseMove(cocos2d::Event* event){
 }
 
 bool GameLayer::onContactBegin(cocos2d::PhysicsContact& contact){
+    
+    auto bodyA = contact.getShapeA()->getBody()->getNode();
+    this->removeChild(bodyA);
+    this->removeChild(contact.getShapeB()->getBody()->getNode());
+    
+    auto p = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/pointer.png");
+    p->setPosition(100,100);
+    this->addChild(p);
     return true;
+}
+void GameLayer::MakePointer(){
+    auto pointer = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/pointer.png");
+    pointer->setScale(0.8);
+    p_pointer=pointer;
+    this->addChild(pointer);
+}
+
+void GameLayer::initListener(){
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->onTouchBegan = CC_CALLBACK_2(GameLayer::onTouchBegan, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority
+    (listener, this);
+    
+    auto mouselistener = EventListenerMouse::create();
+    mouselistener->onMouseMove=CC_CALLBACK_1(GameLayer::onMouseMove, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouselistener, this);
+    
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(GameLayer::onContactBegin, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
 }

@@ -7,7 +7,7 @@
 
 #include "GameLayer.hpp"
 #include "math.h"
-#include "Enemy.hpp"
+//#include "Score.hpp"
 
 #define WINSIZE Director::getInstance()->getWinSize();
 
@@ -18,18 +18,27 @@ Scene* GameLayer::createScene(){
     auto _bg = LayerColor::create(Color4B::GRAY,  Director::getInstance()->getVisibleSize().width,  Director::getInstance()->getVisibleSize().height);
     scene->addChild(_bg);
     
+    
+    
     auto layer = GameLayer::create();
     scene->addChild(layer);
-    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+   // scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     return scene;
 }
 
 bool GameLayer::init(){
     if(!Layer::init())return false;
     for (int i=0; i<5; i++) point_array[i]=i*50;
-    this->schedule(schedule_selector(GameLayer::pushEnemy), 0.3);
+    this->schedule(schedule_selector(GameLayer::pushEnemy), 0.4);
+    score = Number_of_shots = 0;
     initListener();
     MakePointer();
+    
+    auto text = Label::createWithSystemFont(std::to_string(score)+":"+std::to_string(Number_of_shots), "Arial", 48);
+    text->setPosition(500, 500);
+    addChild(text);
+    p_label=text;
+    
     //this->scheduleUpdate();
     return true;
 }
@@ -48,13 +57,13 @@ void GameLayer::createEnemy(cocos2d::Point position){
     auto rand = random(0, 4);
     auto point = rand*50;
     
-    auto enemy = Enemy::create("/Users/seita/Develop/ShootIQ/Resources/P_"+std::to_string(point)+".png");
+    auto enemy = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/P_"+std::to_string(point)+".png");
     enemy->setUserData(&point_array[rand]);
     enemy->setPosition(position);
     enemy->setTag(T_Enemy);
     auto penemy = PhysicsBody::createBox(enemy->getContentSize(),p_physics);
     penemy->setGravityEnable(false);
-    penemy->applyImpulse(Vec2(100000, 0));
+    penemy->applyImpulse(Vec2(200000, 0));
     penemy->setDynamic(true);
     penemy->setRotationEnable(false);
     penemy->setCategoryBitmask(1);
@@ -72,7 +81,7 @@ void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
     auto p_physics = PHYSICSBODY_MATERIAL_DEFAULT;
     p_physics.restitution=0;
     p_physics.friction=0;
-    
+    shot();
     auto ball = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/monsterball.png");
     ball->setPosition(position);
     ball->setScale(0.1);
@@ -84,7 +93,7 @@ void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
     
     auto pball = PhysicsBody::createBox(ball->getContentSize(),p_physics);
     pball->setGravityEnable(false);
-    pball->applyImpulse(Point(div.x/root,div.y/root)*10000000);
+    pball->applyImpulse(Point(div.x/root,div.y/root)*80000000);
     pball->setDynamic(true);
     pball->setRotationEnable(false);
     pball->setCategoryBitmask(2);
@@ -123,11 +132,11 @@ bool GameLayer::onContactBegin(cocos2d::PhysicsContact& contact){
     }else if (bodyB!=NULL && bodyB->getUserData()!=NULL){
         adr = bodyB->getUserData();
     }
+    if(*(int*)adr <=200)addscore(*(int*)adr);
+    p_label->setString(std::to_string(score)+":"+std::to_string(Number_of_shots)+":"+std::to_string(score/Number_of_shots));
     this->removeChild(bodyA);
     this->removeChild(bodyB);
-    auto p = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/pointer.png");
-    p->setPosition(100,100);
-    this->addChild(p);
+ 
     return true;
 }
 void GameLayer::MakePointer(){
@@ -150,4 +159,11 @@ void GameLayer::initListener(){
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(GameLayer::onContactBegin, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
+}
+
+int GameLayer::shot(){
+    return ++Number_of_shots;
+}
+void GameLayer::addscore(int i){
+    score+=i;
 }

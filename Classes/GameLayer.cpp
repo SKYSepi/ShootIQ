@@ -50,15 +50,15 @@ void GameLayer::createEnemy(cocos2d::Point position){
     penemy->applyImpulse(Vec2(100000, 0));
     penemy->setDynamic(true);
     penemy->setRotationEnable(false);
-    penemy->setCategoryBitmask(T_Enemy);
-    penemy->setCollisionBitmask(T_Ball);
-    penemy->setContactTestBitmask(INT_MAX);
+    penemy->setCategoryBitmask(1);
+    penemy->setContactTestBitmask(2);
+    //penemy->setCollisionBitmask(INT_MAX);
     enemy->setPhysicsBody(penemy);
     
  //   auto move = MoveTo::create(6.0f, position+Point(500,0));
 //    enemy->runAction(move);
     
-    this->addChild(enemy,Z_Enemy,Z_Ball);
+    this->addChild(enemy,Z_Enemy,T_Ball);
 }
 
 void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
@@ -76,12 +76,12 @@ void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
     
     auto pball = PhysicsBody::createBox(ball->getContentSize(),p_physics);
     pball->setGravityEnable(false);
-    pball->applyImpulse(Point(div.x,1000)*10000);
+    pball->applyImpulse(Point(1000/div.y*div.x,1000)*1000);
     pball->setDynamic(true);
     pball->setRotationEnable(false);
-    pball->setCategoryBitmask(T_Ball);
-    pball->setCollisionBitmask(T_Enemy);
-    pball->setContactTestBitmask(INT_MAX);
+    pball->setCategoryBitmask(2);
+    pball->setContactTestBitmask(1);
+    //pball->setCollisionBitmask(INT_MAX);
     ball->setPhysicsBody(pball);
     
     this->addChild(ball,Z_Ball,T_Ball);
@@ -116,9 +116,9 @@ bool GameLayer::onContactBegin(cocos2d::PhysicsContact& contact){
 }
 void GameLayer::MakePointer(){
     auto pointer = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/pointer.png");
-    pointer->setScale(0.8);
+    pointer->setScale(0.3);
     p_pointer=pointer;
-    this->addChild(pointer);
+    this->addChild(pointer,Z_Pointer);
 }
 
 void GameLayer::initListener(){

@@ -8,20 +8,18 @@
 #ifndef ScoreHistory_hpp
 #define ScoreHistory_hpp
 
-#include <stdio.h>
-
 #endif /* ScoreHistory_hpp */
-
-typedef struct{
-    std::string name;
-    int score;
-}Score;
 
 class ScoreHistory{
 protected:
-    std::list<Score> scorehistory;
+    struct Score{
+        std::string name;
+        int score;
+    };
+
+    std::list <struct Score> scorehistory;
     
 public:
-    void memoryscore(std::string,int);
+//  void memoryscore(std::string,int);
  //   void getscore();
 };

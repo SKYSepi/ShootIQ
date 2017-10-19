@@ -7,7 +7,7 @@
 
 #include "GameLayer.hpp"
 #include "math.h"
-//#include "Score.hpp"
+//#include "ScoreHistory.hpp"
 
 #define WINSIZE Director::getInstance()->getWinSize();
 
@@ -93,7 +93,7 @@ void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
     
     auto pball = PhysicsBody::createBox(ball->getContentSize(),p_physics);
     pball->setGravityEnable(false);
-    pball->applyImpulse(Point(div.x/root,div.y/root)*80000000);
+    pball->applyImpulse(Point(div.x/root,div.y/root)*40000000);
     pball->setDynamic(true);
     pball->setRotationEnable(false);
     pball->setCategoryBitmask(2);

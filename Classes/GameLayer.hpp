@@ -11,7 +11,7 @@
 
 
 #include "cocos2d.h"
-//#include "Score.hpp"
+
 
 class GameLayer : public cocos2d::Layer{
 protected:

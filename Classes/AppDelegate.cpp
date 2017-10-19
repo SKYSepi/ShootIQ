@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
 #include "GameLayer.hpp"
-
+#include "ScoreHistory.hpp"
 USING_NS_CC;
 
 #define windowy 768
@@ -77,7 +77,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     //基本的にここに追加
-    
+
+    ScoreHistory scorehistory;
     
     auto scene = GameLayer::createScene();
     director->runWithScene(scene);

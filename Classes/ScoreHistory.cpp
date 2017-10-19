@@ -6,9 +6,9 @@
 //
 
 #include "ScoreHistory.hpp"
-
+/*
 void ScoreHistory::memoryscore(std::string i_name,int i_score){
-    Score memory = {i_name,i_score};
+    //Score memory = {i_name,i_score};
     auto p = scorehistory.begin();
     for (int i=0; i<scorehistory.size() && i_score < (*p).score; i++,p++);
     scorehistory.insert(p, memory);//スコア順にリストに追加
@@ -16,3 +16,4 @@ void ScoreHistory::memoryscore(std::string i_name,int i_score){
         scorehistory.pop_back();//リストが10を超えた場合最後を削除
     }
 }
+*/

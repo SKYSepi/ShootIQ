@@ -2,6 +2,7 @@
 #include "GameLayer.hpp"
 #include "ScoreHistory.hpp"
 #include "StartLayer.hpp"
+
 USING_NS_CC;
 
 #define windowy 768
@@ -80,15 +81,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //基本的にここに追加
 
     ScoreHistory scorehistory;
-    
-    auto scene = GameLayer::createScene();
-    director->runWithScene(scene);
-	auto start = StartLayer::createScene();
-	director->runWithScene(start);
-	
-	//auto scene = GameLayer::createScene();
-    //director->runWithScene(scene);
-    
+    auto start = StartLayer::createScene();
+    director->runWithScene(start);
     
     
 

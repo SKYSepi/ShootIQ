@@ -8,7 +8,7 @@
 #ifndef ScoreHistory_hpp
 #define ScoreHistory_hpp
 
-#endif /* ScoreHistory_hpp */
+
 
 class ScoreHistory{
 protected:
@@ -20,6 +20,8 @@ protected:
     std::list <struct Score> scorehistory;
     
 public:
-//  void memoryscore(std::string,int);
- //   void getscore();
+    void memoryscore(std::string,int);
+    //void getscore();
 };
+
+#endif /* ScoreHistory_hpp */

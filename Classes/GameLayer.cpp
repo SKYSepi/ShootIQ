@@ -5,9 +5,10 @@
 //  Created by 東誠太 on 2017/10/10.
 //
 
+#include "StartLayer.hpp"
 #include "GameLayer.hpp"
 #include "math.h"
-//#include "ScoreHistory.hpp"
+#include "ScoreHistory.hpp"
 
 #define WINSIZE Director::getInstance()->getWinSize();
 
@@ -17,8 +18,6 @@ Scene* GameLayer::createScene(){
     auto scene = Scene::createWithPhysics();
     auto _bg = LayerColor::create(Color4B::GRAY,  Director::getInstance()->getVisibleSize().width,  Director::getInstance()->getVisibleSize().height);
     scene->addChild(_bg);
-    
-    
     
     auto layer = GameLayer::create();
     scene->addChild(layer);
@@ -30,6 +29,8 @@ bool GameLayer::init(){
     if(!Layer::init())return false;
     for (int i=0; i<5; i++) point_array[i]=i*50;
     this->schedule(schedule_selector(GameLayer::pushEnemy), 0.4);
+    this->schedule(schedule_selector(GameLayer::endGame), 30.0f);
+    
     score = Number_of_shots = 0;
     initListener();
     MakePointer();
@@ -57,7 +58,7 @@ void GameLayer::createEnemy(cocos2d::Point position){
     auto rand = random(0, 4);
     auto point = rand*50;
     
-    auto enemy = Sprite::create("/Users/seita/Develop/ShootIQ/Resources/P_"+std::to_string(point)+".png");
+    auto enemy = Sprite::create("P_"+std::to_string(point)+".png");
     enemy->setUserData(&point_array[rand]);
     enemy->setPosition(position);
     enemy->setTag(T_Enemy);
@@ -164,6 +165,15 @@ void GameLayer::initListener(){
 int GameLayer::shot(){
     return ++Number_of_shots;
 }
+int GameLayer::hits(){
+    return ++Number_of_hits;
+}
 void GameLayer::addscore(int i){
     score+=i;
+}
+
+void GameLayer::endGame(float d){
+    auto scene = StartLayer::createScene();
+    TransitionFade* fade = TransitionFade::create(0.5f, scene, Color3B::WHITE);
+    Director::getInstance()->replaceScene(fade);
 }

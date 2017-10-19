@@ -5,7 +5,7 @@
 //  Created by skytomo on 2017/10/16
 //
 
-#include "GameLayer.hpp"
+#include "StartGameLayer.hpp"
 #include "StartLayer.hpp"
 #include "ScoreHistory.hpp"
 
@@ -56,7 +56,7 @@ void StartLayer::createButton(cocos2d::Point position) {
 
 bool StartLayer::onTouchBegan(Touch *touch, Event *unused_event) {
     if (this->getChildByTag(T_START)->getBoundingBox().containsPoint(touch->getLocation())) {
-        auto scene = GameLayer::createScene();
+        auto scene = StartGameLayer::createScene();
         TransitionFade* fade = TransitionFade::create(0.5f, scene, Color3B::WHITE);
         Director::getInstance()->replaceScene(fade);
     }

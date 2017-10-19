@@ -1,6 +1,7 @@
 #include "AppDelegate.h"
 #include "GameLayer.hpp"
 #include "ScoreHistory.hpp"
+#include "StartLayer.hpp"
 USING_NS_CC;
 
 #define windowy 768
@@ -82,6 +83,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     auto scene = GameLayer::createScene();
     director->runWithScene(scene);
+	auto start = StartLayer::createScene();
+	director->runWithScene(start);
+	
+	//auto scene = GameLayer::createScene();
+    //director->runWithScene(scene);
     
     
     

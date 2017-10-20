@@ -8,7 +8,7 @@
 #include "ResultLayer.hpp"
 #include "GameLayer.hpp"
 #include "math.h"
-//#include "ScoreHistory.hpp"
+#include "RankInNameLayer.hpp"
 
 #define WINSIZE Director::getInstance()->getWinSize();
 
@@ -29,7 +29,7 @@ bool GameLayer::init(){
     if(!Layer::init())return false;
     for (int i=0; i<5; i++) point_array[i]=i*50;
     this->schedule(schedule_selector(GameLayer::pushEnemy), 0.4);
-    this->schedule(schedule_selector(GameLayer::endGame), 60.0f);
+    this->schedule(schedule_selector(GameLayer::endGame), 40.0f);
     
     score = Number_of_shots = Number_of_hits =0;
     initListener();
@@ -167,8 +167,9 @@ void GameLayer::endGame(float d){
     _userdata->setIntegerForKey("result_score", score);
     _userdata->setIntegerForKey("result_hits", Number_of_hits);
     _userdata->setIntegerForKey("result_shots", Number_of_shots);
-    
-    auto scene = ResultLayer::createScene();
+    cocos2d::Scene* scene;
+    if(_userdata->getIntegerForKey("scorehistory3")<score)scene = RankInNameLayer::createScene();
+    else scene = ResultLayer::createScene();
     TransitionFade* fade = TransitionFade::create(0.5f, scene, Color3B::WHITE);
     Director::getInstance()->replaceScene(fade);
 }

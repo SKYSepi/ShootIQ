@@ -24,11 +24,16 @@
 
 #include "AppDelegate.h"
 #include "cocos2d.h"
+#include "ScoreHistory.hpp"
+#include <iostream>
 
 USING_NS_CC;
+
+
 
 int main(int argc, char *argv[])
 {
     AppDelegate app;
+    std::cout<<"OK"<<std::endl;
     return Application::getInstance()->run();
 }

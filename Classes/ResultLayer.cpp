@@ -18,7 +18,7 @@ cocos2d::Scene* ResultLayer::createScene(){
 
 bool ResultLayer::init() {
     if (!Layer::init()) return false;
-    
+    calc_rw();
     auto listener = cocos2d::EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(ResultLayer::onTouchBegan, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
@@ -29,9 +29,29 @@ bool ResultLayer::init() {
     nextimage->setTag(T_end);
     addChild(nextimage);
     
-    auto text = cocos2d::Label::createWithSystemFont(cocos2d::UserDefault::getInstance()->getStringForKey("key"), "Arial", 48);
-    text->setPosition(500, 500);
-    addChild(text);
+    auto _data = cocos2d::UserDefault::getInstance();
+    auto scoretext = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory")), "Arial", 48);
+    scoretext->setPosition(300, 500);
+    auto score = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("result_score")), "Arial", 24);
+    score->setPosition(700, 700);
+    auto hits = cocos2d::Label::createWithSystemFont(std::to_string((_data->getIntegerForKey("result_hits")!=0)? (_data->getIntegerForKey("result_score")/ _data->getIntegerForKey("result_hits")):0), "Arial", 24);
+    hits->setPosition(700, 650);
+    auto shots = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("result_shots")), "Arial", 24);
+    shots->setPosition(700, 600);
+    addChild(scoretext);
+    addChild(score);
+    addChild(hits);
+    addChild(shots);
+    
+    auto scorehistory1 = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory1")), "Arial", 24);
+    scorehistory1->setPosition(700, 350);
+    addChild(scorehistory1);
+    auto scorehistory2 = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory2")), "Arial", 24);
+    scorehistory2->setPosition(700, 300);
+    addChild(scorehistory2);
+    auto scorehistory3= cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory3")), "Arial", 24);
+    scorehistory3->setPosition(700, 250);
+    addChild(scorehistory3);
     
     return true;
 }
@@ -53,3 +73,34 @@ bool ResultLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_eve
     }
     return true;
 }
+void ResultLayer::calc_rw(){
+    auto _data = cocos2d::UserDefault::getInstance();
+    auto resultscore = _data->getIntegerForKey("result_score");
+    auto resultshots = _data->getIntegerForKey("result_shots");
+    auto resulthits = _data->getIntegerForKey("result_hits");
+    auto avgIQ = (resulthits!=0)?resultscore/resulthits:0;
+    
+    
+    auto score = resultscore + avgIQ * 40 - resultshots * 30;
+    _data->setIntegerForKey("scorehistory", score);
+    int scorehistory=0;
+    if(_data->getIntegerForKey("scorehistory1") < score){
+        scorehistory = _data->getIntegerForKey("scorehistory1");
+        _data->setIntegerForKey("scorehistory1", score);
+        score = scorehistory;
+    }
+    if(_data->getIntegerForKey("scorehistory2") < score){
+        scorehistory = _data->getIntegerForKey("scorehistory2");
+        _data->setIntegerForKey("scorehistory2", score);
+        score = scorehistory;
+    }
+    if(_data->getIntegerForKey("scorehistory3") < score){
+        scorehistory = _data->getIntegerForKey("scorehistory3");
+        _data->setIntegerForKey("scorehistory3", score);
+        score = scorehistory;
+    }
+    /*_data->setIntegerForKey("scorehistory1",INT_MIN);
+    _data->setIntegerForKey("scorehistory2", INT_MIN);
+    _data->setIntegerForKey("scorehistory3", INT_MIN);
+    */
+ }

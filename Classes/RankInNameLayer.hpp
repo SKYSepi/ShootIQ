@@ -21,7 +21,7 @@ public:
     };
     static Scene* createScene();
     virtual bool init();
-    //CREATE_FUNC(RankInNameLayer);
+    CREATE_FUNC(RankInNameLayer);
     virtual void onEnter();
     void next();
     virtual bool onTouchBegan(Touch *touch, Event *unused_event);

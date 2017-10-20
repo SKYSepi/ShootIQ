@@ -23,7 +23,7 @@ bool RankInNameLayer::init() {
     listener->onTouchBegan = CC_CALLBACK_2(RankInNameLayer::onTouchBegan, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
     
-    auto editBox = ui::EditBox::create(Size(500,500),ui::Scale9Sprite::create("exit.png"));
+    auto editBox = ui::EditBox::create(Size(500,500),"exit.png");
     editBox->EditBox::setFont("Arial", 100);
     editBox->EditBox::setPlaceHolder("Input Here");
     editBox->EditBox::setFontColor(Color3B::WHITE);
@@ -32,11 +32,11 @@ bool RankInNameLayer::init() {
     editBox->setText("Input Here");
     editBox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);
     editBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);
-    editBox->ui::EditBox::setPosition(Vec2(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height/2));
-
+    editBox->ui::EditBox::setPosition(Vec2(0, 0));
+    editBox->setAnchorPoint(Vec2(0,0));
     
     editBox->setDelegate(this);
-    this->addChild(editBox,1);
+    this->addChild(editBox);
     
     return true;
 }
@@ -66,13 +66,9 @@ void RankInNameLayer::editBoxEditingDidEnd(ui::EditBox *editBox){
     std::cout << "InputEditing" << std::endl;
 }
 void RankInNameLayer::editBoxTextChanged(ui::EditBox *editBox, const std::string& text){
-    std::cout << "InputTextChanged:" << text <<std::endl;
-    auto _data = cocos2d::UserDefault::getInstance();
-    _data->setStringForKey("scorehistory_name", text);
+    std::cout << "InputTextChanged" << std::endl;
 }
 void RankInNameLayer::editBoxReturn(ui::EditBox *editBox){
     std::cout << "InputReturn" << std::endl;
-    auto scene = ResultLayer::createScene();
-    cocos2d::Director::getInstance()->replaceScene(scene);
 }
 

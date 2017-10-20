@@ -90,29 +90,21 @@ void ResultLayer::calc_rw(){
     std::string scorehistory_name;
     auto score_name = _data->getStringForKey("scorehistory_name");
     int scorehistory;
+    int scorehistory=0;
     if(_data->getIntegerForKey("scorehistory1") < score){
         scorehistory = _data->getIntegerForKey("scorehistory1");
         _data->setIntegerForKey("scorehistory1", score);
         score = scorehistory;
-        scorehistory_name = _data->getStringForKey("scorehistory1_name");
-        _data->setStringForKey("scorehistory1_name",score_name);
-        score_name = scorehistory_name;
     }
     if(_data->getIntegerForKey("scorehistory2") < score){
         scorehistory = _data->getIntegerForKey("scorehistory2");
         _data->setIntegerForKey("scorehistory2", score);
         score = scorehistory;
-        scorehistory_name = _data->getStringForKey("scorehistory2_name");
-        _data->setStringForKey("scorehistory2_name",score_name);
-        score_name = scorehistory_name;
     }
     if(_data->getIntegerForKey("scorehistory3") < score){
         scorehistory = _data->getIntegerForKey("scorehistory3");
         _data->setIntegerForKey("scorehistory3", score);
         score = scorehistory;
-        scorehistory_name = _data->getStringForKey("scorehistory3_name");
-        _data->setStringForKey("scorehistory3_name",score_name);
-        score_name = scorehistory_name;
     }
     /*_data->setIntegerForKey("scorehistory1",INT_MIN);
     _data->setIntegerForKey("scorehistory2", INT_MIN);

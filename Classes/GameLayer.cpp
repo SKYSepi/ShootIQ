@@ -35,6 +35,10 @@ bool GameLayer::init(){
     initListener();
     MakePointer();
     
+	Sprite* bgsprite = Sprite::create("bgm.png");
+	bgsprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+	this->addChild(bgsprite);
+
     auto text = Label::createWithSystemFont(std::to_string(score)+":"+std::to_string(Number_of_hits), "Arial", 48);
     text->setPosition(500, 500);
     addChild(text);

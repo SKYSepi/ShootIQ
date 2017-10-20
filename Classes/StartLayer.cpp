@@ -15,25 +15,24 @@ USING_NS_CC;
 
 Scene* StartLayer::createScene(){
     auto scene = Scene::createWithPhysics();
-    auto _bg = LayerColor::create(Color4B::GRAY,  Director::getInstance()->getVisibleSize().width,  Director::getInstance()->getVisibleSize().height);
-    scene->addChild(_bg,T_bg);
     auto layer = StartLayer::create();
     scene->addChild(layer);
-    
     return scene;
 }
 
 bool StartLayer::init() {
+
     if (!Layer::init()) return false;
     //clear();
-    ranking();
     createButton(cocos2d::Point(0, 0));
     
+	Sprite* bgsprite = Sprite::create("bgm.png");
+	bgsprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+	this->addChild(bgsprite);
+
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(StartLayer::onTouchBegan, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-    
-    
     return true;
 }
 
@@ -50,7 +49,6 @@ void StartLayer::createButton(cocos2d::Point position) {
      button2->setTag(T_RULE);
      button2->setPosition(Point(500, 200));
      button2->setScale(0.5);
-     addChild(button2, T_sprite);
      
      auto button3 = ButtonSprite::create("exit.png");
      button3->setTag(T_EXIT);
@@ -87,11 +85,9 @@ void StartLayer::clear(){
     _data->setIntegerForKey("scorehistory2", INT_MIN);
     _data->setIntegerForKey("scorehistory3", INT_MIN);
     _data->setStringForKey("scorehistory1_name", "");
-    _data->setStringForKey("scorehistory2_name", "");
-    _data->setStringForKey("scorehistory3_name", "");
-    
 }
 
+<<<<<<< HEAD
 void StartLayer::ranking(){
     auto _data = cocos2d::UserDefault::getInstance();
     auto winsize = Director::getInstance()->getWinSize();
@@ -120,3 +116,8 @@ void StartLayer::ranking(){
     addChild(ranking_text,T_sprite);
     
 }
+=======
+
+
+
+>>>>>>> a5617cee58cdc673bbed9e8c42d4c5971e7cca50

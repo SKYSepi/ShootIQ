@@ -11,7 +11,7 @@
 
 
 #include "cocos2d.h"
-#include "ScoreHistory.hpp"
+//#include "ScoreHistory.hpp"
 
 class GameLayer : public cocos2d::Layer{
 protected:
@@ -32,7 +32,6 @@ protected:
     void createEnemy(cocos2d::Point);
     void createchacheball(cocos2d::Point,cocos2d::Point);
     
-    
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();
@@ -48,6 +47,7 @@ public:
     int hits();
     void addscore(int);
     void endGame(float);
+    
 };
 
 #endif /* GameLayer_hpp */

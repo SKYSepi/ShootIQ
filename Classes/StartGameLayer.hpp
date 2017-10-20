@@ -9,6 +9,7 @@
 #define StartGameLayer_hpp
 
 #include "cocos2d.h"
+//#include "ScoreHistory.hpp"
 
 class StartGameLayer : cocos2d::Layer{
 protected:

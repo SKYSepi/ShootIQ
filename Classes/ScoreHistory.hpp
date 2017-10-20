@@ -17,11 +17,12 @@ protected:
         int score;
     };
 
-    std::list <struct Score> scorehistory;
+    static std::list <struct Score> scorehistory;
     
 public:
     void memoryscore(std::string,int);
-    //void getscore();
+    int getscore(const int n);
+    std::string getname(const int n);
 };
 
 #endif /* ScoreHistory_hpp */

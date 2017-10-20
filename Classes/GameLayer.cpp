@@ -5,10 +5,10 @@
 //  Created by 東誠太 on 2017/10/10.
 //
 
-#include "StartLayer.hpp"
+#include "ResultLayer.hpp"
 #include "GameLayer.hpp"
 #include "math.h"
-#include "ScoreHistory.hpp"
+//#include "ScoreHistory.hpp"
 
 #define WINSIZE Director::getInstance()->getWinSize();
 
@@ -88,7 +88,6 @@ void GameLayer::createchacheball(cocos2d::Point position,cocos2d::Point moved){
     pball->setRotationEnable(false);
     pball->setCategoryBitmask(2);
     pball->setContactTestBitmask(1);
-    //pball->setCollisionBitmask(INT_MAX);
     ball->setPhysicsBody(pball);
     
     this->addChild(ball,Z_Ball,T_Ball);
@@ -124,7 +123,8 @@ bool GameLayer::onContactBegin(cocos2d::PhysicsContact& contact){
     }
     if(*(int*)adr <=200)addscore(*(int*)adr);
     hits();
-    p_label->setString(std::to_string(score)+":"+std::to_string(Number_of_shots)+":"+std::to_string(score/Number_of_hits));
+    UserDefault* _data = UserDefault::getInstance();
+    p_label->setString(std::to_string(score)+":"+std::to_string(Number_of_shots)+":"+std::to_string(score/Number_of_hits)+":"+_data->getStringForKey("key"));
     this->removeChild(bodyA);
     this->removeChild(bodyB);
  
@@ -163,7 +163,12 @@ void GameLayer::addscore(int i){
 }
 
 void GameLayer::endGame(float d){
-    auto scene = StartLayer::createScene();
+    UserDefault* _userdata = UserDefault::getInstance();
+    _userdata->setIntegerForKey("result_score", score);
+    _userdata->setIntegerForKey("result_hits", Number_of_hits);
+    _userdata->setIntegerForKey("result_shots", Number_of_shots);
+    
+    auto scene = ResultLayer::createScene();
     TransitionFade* fade = TransitionFade::create(0.5f, scene, Color3B::WHITE);
     Director::getInstance()->replaceScene(fade);
 }

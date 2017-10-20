@@ -22,7 +22,6 @@ protected:
     };
      void createButton(cocos2d::Point position);
 public:
-    
     static cocos2d::Scene* createScene();
     virtual bool init();
     CREATE_FUNC(StartLayer);

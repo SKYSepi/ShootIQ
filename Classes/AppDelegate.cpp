@@ -80,7 +80,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     //基本的にここに追加
 
-    ScoreHistory scorehistory;
     auto start = StartLayer::createScene();
     director->runWithScene(start);
     

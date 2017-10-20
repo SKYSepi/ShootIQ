@@ -73,3 +73,8 @@ bool StartLayer::onTouchBegan(Touch *touch, Event *unused_event) {
 void StartLayer::onEnter() {
     Layer::onEnter();
 }
+
+
+
+
+

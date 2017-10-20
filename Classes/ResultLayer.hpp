@@ -8,6 +8,21 @@
 #ifndef ResultLayer_hpp
 #define ResultLayer_hpp
 
-#include <stdio.h>
+#include "cocos2d.h"
+
+class ResultLayer : cocos2d::Layer{
+protected:
+public:
+    enum Tag{
+      T_end,
+    };
+    static cocos2d::Scene* createScene();
+    virtual bool init();
+    CREATE_FUNC(ResultLayer);
+    virtual void onEnter();
+    void next();
+    virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+};
+
 
 #endif /* ResultLayer_hpp */

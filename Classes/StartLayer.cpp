@@ -22,6 +22,7 @@ Scene* StartLayer::createScene(){
 
 bool StartLayer::init() {
     if (!Layer::init()) return false;
+    clear();
     createButton(cocos2d::Point(0, 0));
     
     auto listener = EventListenerTouchOneByOne::create();
@@ -74,6 +75,12 @@ void StartLayer::onEnter() {
     Layer::onEnter();
 }
 
+void StartLayer::clear(){
+    auto _data = cocos2d::UserDefault::getInstance();
+    _data->setIntegerForKey("scorehistory1",INT_MIN);
+    _data->setIntegerForKey("scorehistory2", INT_MIN);
+    _data->setIntegerForKey("scorehistory3", INT_MIN);
+}
 
 
 

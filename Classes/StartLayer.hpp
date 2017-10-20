@@ -27,6 +27,7 @@ public:
     CREATE_FUNC(StartLayer);
     virtual void onEnter();
     virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    void clear();
 };
 
 #endif

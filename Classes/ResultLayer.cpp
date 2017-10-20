@@ -7,12 +7,14 @@
 
 #include "ResultLayer.hpp"
 #include "StartLayer.hpp"
+#include <iostream>
 
 
 cocos2d::Scene* ResultLayer::createScene(){
     auto scene = cocos2d::Scene::createWithPhysics();
     auto layer = ResultLayer::create();
     scene->addChild(layer);
+    //calc_rw();
     return scene;
 }
 
@@ -74,6 +76,7 @@ bool ResultLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_eve
     return true;
 }
 void ResultLayer::calc_rw(){
+    std::cout << "called" << std::endl;
     auto _data = cocos2d::UserDefault::getInstance();
     auto resultscore = _data->getIntegerForKey("result_score");
     auto resultshots = _data->getIntegerForKey("result_shots");
@@ -81,11 +84,12 @@ void ResultLayer::calc_rw(){
     auto avgIQ = (resulthits!=0)?resultscore/resulthits:0;
     
     
-    auto score = resultscore + avgIQ * 40 - resultshots * 30;
+    int score;
+    score =  resultscore + avgIQ * 40 - resultshots * 30;
     _data->setIntegerForKey("scorehistory", score);
-    int scorehistory=0;
     std::string scorehistory_name;
     auto score_name = _data->getStringForKey("scorehistory_name");
+    int scorehistory;
     if(_data->getIntegerForKey("scorehistory1") < score){
         scorehistory = _data->getIntegerForKey("scorehistory1");
         _data->setIntegerForKey("scorehistory1", score);

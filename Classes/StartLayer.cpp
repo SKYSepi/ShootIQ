@@ -68,7 +68,7 @@ bool StartLayer::onTouchBegan(Touch *touch, Event *unused_event) {
         Director::getInstance()->replaceScene(fade);
     }
     else if (this->getChildByTag(T_RULE)->getBoundingBox().containsPoint(touch->getLocation())) {
-        
+        clear();
     }
     else if (this->getChildByTag(T_EXIT)->getBoundingBox().containsPoint(touch->getLocation())) {
         exit(1);
@@ -95,24 +95,28 @@ void StartLayer::clear(){
 void StartLayer::ranking(){
     auto _data = cocos2d::UserDefault::getInstance();
     auto winsize = Director::getInstance()->getWinSize();
-    auto scorehistory1 = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory1")), "Arial", 24);
-    scorehistory1->setPosition(winsize.width/2+100, 700);
+    auto scorehistory1 = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory1")), "Arial", 48);
+    scorehistory1->setPosition(winsize.width/2+300, 600);
     addChild(scorehistory1,T_sprite);
-    auto scorehistory2 = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory2")), "Arial", 24);
-    scorehistory2->setPosition(winsize.width/2+100, 650);
+    auto scorehistory2 = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory2")), "Arial", 48);
+    scorehistory2->setPosition(winsize.width/2+300, 550);
     addChild(scorehistory2,T_sprite);
-    auto scorehistory3 = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory3")), "Arial", 24);
-    scorehistory3->setPosition(winsize.width/2+100, 600);
+    auto scorehistory3 = cocos2d::Label::createWithSystemFont(std::to_string(_data->getIntegerForKey("scorehistory3")), "Arial", 48);
+    scorehistory3->setPosition(winsize.width/2+300, 500);
     addChild(scorehistory3,T_sprite);
     
-    auto scorehistory1_name = cocos2d::Label::createWithSystemFont(_data->getStringForKey("scorehistory1_name"), "Arial", 24);
-    scorehistory1_name->setPosition(winsize.width/2, 700);
+    auto scorehistory1_name = cocos2d::Label::createWithSystemFont(_data->getStringForKey("scorehistory1_name"), "Arial", 48);
+    scorehistory1_name->setPosition(winsize.width/2, 600);
     addChild(scorehistory1_name,T_sprite);
-    auto scorehistory2_name = cocos2d::Label::createWithSystemFont(_data->getStringForKey("scorehistory2_name"), "Arial", 24);
-    scorehistory2_name->setPosition(winsize.width/2, 650);
+    auto scorehistory2_name = cocos2d::Label::createWithSystemFont(_data->getStringForKey("scorehistory2_name"), "Arial", 48);
+    scorehistory2_name->setPosition(winsize.width/2, 550);
     addChild(scorehistory2_name,T_sprite);
-    auto scorehistory3_name = cocos2d::Label::createWithSystemFont(_data->getStringForKey("scorehistory3_name"), "Arial", 24);
-    scorehistory3_name->setPosition(winsize.width/2, 600);
+    auto scorehistory3_name = cocos2d::Label::createWithSystemFont(_data->getStringForKey("scorehistory3_name"), "Arial", 48);
+    scorehistory3_name->setPosition(winsize.width/2, 500);
     addChild(scorehistory3_name,T_sprite);
+    
+    auto ranking_text = cocos2d::Label::createWithSystemFont("ランキング", "Arial" , 60);
+    ranking_text->setPosition(3*winsize.width/4,700);
+    addChild(ranking_text,T_sprite);
     
 }

@@ -22,7 +22,7 @@ public:
     virtual void onEnter();
     void next();
     virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
-    void calc_rw();
+    static void calc_rw();
 };
 
 

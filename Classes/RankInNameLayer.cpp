@@ -38,6 +38,13 @@ bool RankInNameLayer::init() {
     editBox->setDelegate(this);
     this->addChild(editBox,1);
     
+    auto next = cocos2d::Sprite::create("exit.png");
+    next->setPosition(Director::getInstance()->getWinSize().width/2, 10);
+    next->setAnchorPoint(Vec2(0, 0));
+    next->setTag(T_next);
+    next->setScale(0.5);
+    addChild(next,1);
+    
     return true;
 }
 
@@ -51,10 +58,10 @@ void RankInNameLayer::next(){
 }
 
 bool RankInNameLayer::onTouchBegan(Touch *touch, Event *unused_event){
-    /*if (this->getChildByTag(T_next)->getBoundingBox().containsPoint(touch->getLocation())) {
+    if (this->getChildByTag(T_next)->getBoundingBox().containsPoint(touch->getLocation())) {
         auto scene = ResultLayer::createScene();
         cocos2d::Director::getInstance()->replaceScene(scene);
-    }*/
+    }
     return true;
 }
 
@@ -72,7 +79,5 @@ void RankInNameLayer::editBoxTextChanged(ui::EditBox *editBox, const std::string
 }
 void RankInNameLayer::editBoxReturn(ui::EditBox *editBox){
     std::cout << "InputReturn" << std::endl;
-    auto scene = ResultLayer::createScene();
-    cocos2d::Director::getInstance()->replaceScene(scene);
 }
 

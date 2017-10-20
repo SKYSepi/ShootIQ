@@ -172,4 +172,6 @@ void GameLayer::endGame(float d){
     else scene = ResultLayer::createScene();
     TransitionFade* fade = TransitionFade::create(0.5f, scene, Color3B::WHITE);
     Director::getInstance()->replaceScene(fade);
+    
+    
 }

@@ -7,7 +7,7 @@
 
 #include "RankInNameLayer.hpp"
 #include "ResultLayer.hpp"
-
+#include <iostream>
 using namespace cocos2d;
 
 Scene* RankInNameLayer::createScene(){
@@ -22,18 +22,22 @@ bool RankInNameLayer::init() {
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(RankInNameLayer::onTouchBegan, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-    /*
-    auto editbox = ui::EditBox::create(Size(200, 100), ui::Scale9Sprite::create());
-    editbox->setFont("arial.ttf", 40.0f);
-    editbox->setPlaceHolder("ここに入力してください");
-    editbox->setPlaceholderFontColor(Color3B::BLACK);
-    editbox->setMaxLength(20);
-    editbox->setText("NoName");
-    editbox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);
-    editbox->setInputMode(ui::EditBox::InputMode::ANY);
-    editbox->setDelegate(this);
-    this->addChild(editbox);
-    */
+    
+    auto editBox = ui::EditBox::create(Size(500,500),"exit.png");
+    editBox->EditBox::setFont("Arial", 100);
+    editBox->EditBox::setPlaceHolder("Input Here");
+    editBox->EditBox::setFontColor(Color3B::WHITE);
+    editBox->EditBox::setPlaceholderFontColor(Color3B::WHITE);
+    editBox->setMaxLength(20);
+    editBox->setText("Input Here");
+    editBox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);
+    editBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);
+    editBox->ui::EditBox::setPosition(Vec2(0, 0));
+    editBox->setAnchorPoint(Vec2(0,0));
+    
+    editBox->setDelegate(this);
+    this->addChild(editBox);
+    
     return true;
 }
 
@@ -53,3 +57,18 @@ bool RankInNameLayer::onTouchBegan(Touch *touch, Event *unused_event){
     }*/
     return true;
 }
+
+
+void RankInNameLayer::editBoxEditingDidBegin(ui::EditBox *editBox){
+    std::cout << "InputBegin" << std::endl;
+}
+void RankInNameLayer::editBoxEditingDidEnd(ui::EditBox *editBox){
+    std::cout << "InputEditing" << std::endl;
+}
+void RankInNameLayer::editBoxTextChanged(ui::EditBox *editBox, const std::string& text){
+    std::cout << "InputTextChanged" << std::endl;
+}
+void RankInNameLayer::editBoxReturn(ui::EditBox *editBox){
+    std::cout << "InputReturn" << std::endl;
+}
+

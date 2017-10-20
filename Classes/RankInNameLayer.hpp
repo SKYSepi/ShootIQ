@@ -9,11 +9,11 @@
 #define RankInNameLayer_hpp
 
 #include "cocos2d.h"
-//#include "extensions/cocos-ext.h"
+#include "ui/CocosGUI.h"
 
 using namespace cocos2d;
 
-class RankInNameLayer : Layer{
+class RankInNameLayer : public Layer,public ui::EditBoxDelegate{
 protected:
 public:
     enum Tag{
@@ -21,16 +21,16 @@ public:
     };
     static Scene* createScene();
     virtual bool init();
-    CREATE_FUNC(RankInNameLayer);
+    //CREATE_FUNC(RankInNameLayer);
     virtual void onEnter();
     void next();
     virtual bool onTouchBegan(Touch *touch, Event *unused_event);
- /*
-    virtual void editBoxEditingDidBegin(ui::EditBox *editBox);
-    virtual void editBoxEditingDidEnd(ui::EditBox *editBox);
-    virtual void editBoxTextChanged(ui::EditBox *editBox, const std::string& text);
-    virtual void editBoxReturn(ui::EditBox *editBox);
-*/
+ 
+    virtual void editBoxEditingDidBegin(ui::EditBox*);
+    virtual void editBoxEditingDidEnd(ui::EditBox*);
+    virtual void editBoxTextChanged(ui::EditBox*,const std::string&);
+    virtual void editBoxReturn(ui::EditBox*);
+
   };
 
 

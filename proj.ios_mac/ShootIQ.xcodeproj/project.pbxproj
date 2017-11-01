@@ -14,12 +14,58 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
 		3B00393E1F8DC8DB007C8759 /* P_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00393C1F8DC8DB007C8759 /* P_0.png */; };
-		3B13BFBA1F95E3C0009DBAEA /* ScoreHistory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B13BFB81F95E3C0009DBAEA /* ScoreHistory.cpp */; };
-		3B13BFBB1F95E3C0009DBAEA /* ScoreHistory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B13BFB81F95E3C0009DBAEA /* ScoreHistory.cpp */; };
 		3B13BFBE1F965C03009DBAEA /* pointer.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13BFBD1F965C03009DBAEA /* pointer.png */; };
 		3B13BFBF1F965C03009DBAEA /* pointer.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B13BFBD1F965C03009DBAEA /* pointer.png */; };
 		3B1A1FE31F8D04D20099BEF0 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A1FE11F8D04D20099BEF0 /* GameLayer.cpp */; };
 		3B1A1FE41F8D04D20099BEF0 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A1FE11F8D04D20099BEF0 /* GameLayer.cpp */; };
+		3B47087C1F9A5737002A01AB /* StartLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B4708771F9A5736002A01AB /* StartLayer.cpp */; };
+		3B47087D1F9A5737002A01AB /* RankInNameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B4708781F9A5736002A01AB /* RankInNameLayer.cpp */; };
+		3B47087E1F9A5737002A01AB /* StartGameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B4708791F9A5736002A01AB /* StartGameLayer.cpp */; };
+		3B47087F1F9A5737002A01AB /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B47087A1F9A5737002A01AB /* ResultLayer.cpp */; };
+		3B4708941F9A574F002A01AB /* RulePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708801F9A574C002A01AB /* RulePhoto.png */; };
+		3B4708951F9A574F002A01AB /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708811F9A574C002A01AB /* res */; };
+		3B4708961F9A574F002A01AB /* モンスターボールをホッケーでしてみた.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708821F9A574C002A01AB /* モンスターボールをホッケーでしてみた.png */; };
+		3B4708971F9A574F002A01AB /* rule.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708831F9A574C002A01AB /* rule.png */; };
+		3B4708981F9A574F002A01AB /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708841F9A574C002A01AB /* exit.png */; };
+		3B4708991F9A574F002A01AB /* モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708851F9A574C002A01AB /* モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png */; };
+		3B47089A1F9A574F002A01AB /* P_150.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708861F9A574D002A01AB /* P_150.png */; };
+		3B47089B1F9A574F002A01AB /* P_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708871F9A574D002A01AB /* P_100.png */; };
+		3B47089D1F9A574F002A01AB /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708891F9A574D002A01AB /* next.png */; };
+		3B47089F1F9A574F002A01AB /* P_200.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088B1F9A574D002A01AB /* P_200.png */; };
+		3B4708A01F9A574F002A01AB /* P_50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088C1F9A574E002A01AB /* P_50.png */; };
+		3B4708A11F9A574F002A01AB /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088D1F9A574E002A01AB /* start.png */; };
+		3B4708A21F9A574F002A01AB /* I'm sure.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088E1F9A574E002A01AB /* I'm sure.png */; };
+		3B4708A31F9A574F002A01AB /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088F1F9A574E002A01AB /* fonts */; };
+		3B4708A41F9A574F002A01AB /* bgm2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708901F9A574E002A01AB /* bgm2.png */; };
+		3B4708A61F9A574F002A01AB /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708921F9A574E002A01AB /* return.png */; };
+		3B4708A71F9A574F002A01AB /* bgm.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708931F9A574F002A01AB /* bgm.png */; };
+		3B4708A81F9A58DD002A01AB /* RankInNameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B4708781F9A5736002A01AB /* RankInNameLayer.cpp */; };
+		3B4708A91F9A58E2002A01AB /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B47087A1F9A5737002A01AB /* ResultLayer.cpp */; };
+		3B4708AA1F9A58E5002A01AB /* StartGameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B4708791F9A5736002A01AB /* StartGameLayer.cpp */; };
+		3B4708AB1F9A58E7002A01AB /* StartLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B4708771F9A5736002A01AB /* StartLayer.cpp */; };
+		3B4708AC1F9A5954002A01AB /* bgm.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708931F9A574F002A01AB /* bgm.png */; };
+		3B4708AD1F9A5957002A01AB /* bgm2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708901F9A574E002A01AB /* bgm2.png */; };
+		3B4708AE1F9A5959002A01AB /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708841F9A574C002A01AB /* exit.png */; };
+		3B4708AF1F9A595F002A01AB /* I'm sure.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088E1F9A574E002A01AB /* I'm sure.png */; };
+		3B4708B01F9A5962002A01AB /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708891F9A574D002A01AB /* next.png */; };
+		3B4708B21F9A596E002A01AB /* P_150.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708861F9A574D002A01AB /* P_150.png */; };
+		3B4708B31F9A5974002A01AB /* P_200.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088B1F9A574D002A01AB /* P_200.png */; };
+		3B4708B41F9A5981002A01AB /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708921F9A574E002A01AB /* return.png */; };
+		3B4708B51F9A5983002A01AB /* rule.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708831F9A574C002A01AB /* rule.png */; };
+		3B4708B61F9A5986002A01AB /* RulePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708801F9A574C002A01AB /* RulePhoto.png */; };
+		3B4708B71F9A59A5002A01AB /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088D1F9A574E002A01AB /* start.png */; };
+		3B4708B81F9A59A8002A01AB /* モンスターボールをホッケーでしてみた.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708821F9A574C002A01AB /* モンスターボールをホッケーでしてみた.png */; };
+		3B4708B91F9A59AD002A01AB /* モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708851F9A574C002A01AB /* モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png */; };
+		3B4708BA1F9A59B2002A01AB /* monsterball.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BAD2B691F94928D00ED63E5 /* monsterball.png */; };
+		3B4708BB1F9A59B4002A01AB /* P_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00393C1F8DC8DB007C8759 /* P_0.png */; };
+		3B4708BC1F9A5A9C002A01AB /* P_50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B47088C1F9A574E002A01AB /* P_50.png */; };
+		3B4708BE1F9A5AA2002A01AB /* P_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708871F9A574D002A01AB /* P_100.png */; };
+		3B4708C11F9A5F52002A01AB /* Rule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B4708BF1F9A5F52002A01AB /* Rule.cpp */; };
+		3B4708C21F9A5F52002A01AB /* Rule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B4708BF1F9A5F52002A01AB /* Rule.cpp */; };
+		3B4708C41F9A678D002A01AB /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708C31F9A678D002A01AB /* name.png */; };
+		3B4708C51F9A678D002A01AB /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708C31F9A678D002A01AB /* name.png */; };
+		3B4708C71F9A6D45002A01AB /* darksky.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708C61F9A6D45002A01AB /* darksky.png */; };
+		3B4708C81F9A6D45002A01AB /* darksky.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4708C61F9A6D45002A01AB /* darksky.png */; };
 		3BAD2B6B1F94928E00ED63E5 /* monsterball.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BAD2B691F94928D00ED63E5 /* monsterball.png */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
@@ -119,11 +165,38 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		3B00393C1F8DC8DB007C8759 /* P_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P_0.png; sourceTree = "<group>"; };
-		3B13BFB81F95E3C0009DBAEA /* ScoreHistory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreHistory.cpp; sourceTree = "<group>"; };
-		3B13BFB91F95E3C0009DBAEA /* ScoreHistory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScoreHistory.hpp; sourceTree = "<group>"; };
 		3B13BFBD1F965C03009DBAEA /* pointer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointer.png; sourceTree = "<group>"; };
 		3B1A1FE11F8D04D20099BEF0 /* GameLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
 		3B1A1FE21F8D04D20099BEF0 /* GameLayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameLayer.hpp; sourceTree = "<group>"; };
+		3B4708731F9A5736002A01AB /* RankInNameLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RankInNameLayer.hpp; sourceTree = "<group>"; };
+		3B4708751F9A5736002A01AB /* StartGameLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StartGameLayer.hpp; sourceTree = "<group>"; };
+		3B4708761F9A5736002A01AB /* StartLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StartLayer.hpp; sourceTree = "<group>"; };
+		3B4708771F9A5736002A01AB /* StartLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartLayer.cpp; sourceTree = "<group>"; };
+		3B4708781F9A5736002A01AB /* RankInNameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RankInNameLayer.cpp; sourceTree = "<group>"; };
+		3B4708791F9A5736002A01AB /* StartGameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartGameLayer.cpp; sourceTree = "<group>"; };
+		3B47087A1F9A5737002A01AB /* ResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultLayer.cpp; sourceTree = "<group>"; };
+		3B47087B1F9A5737002A01AB /* ResultLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResultLayer.hpp; sourceTree = "<group>"; };
+		3B4708801F9A574C002A01AB /* RulePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RulePhoto.png; sourceTree = "<group>"; };
+		3B4708811F9A574C002A01AB /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		3B4708821F9A574C002A01AB /* モンスターボールをホッケーでしてみた.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "モンスターボールをホッケーでしてみた.png"; sourceTree = "<group>"; };
+		3B4708831F9A574C002A01AB /* rule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rule.png; sourceTree = "<group>"; };
+		3B4708841F9A574C002A01AB /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit.png; sourceTree = "<group>"; };
+		3B4708851F9A574C002A01AB /* モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png"; sourceTree = "<group>"; };
+		3B4708861F9A574D002A01AB /* P_150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P_150.png; sourceTree = "<group>"; };
+		3B4708871F9A574D002A01AB /* P_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P_100.png; sourceTree = "<group>"; };
+		3B4708891F9A574D002A01AB /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		3B47088B1F9A574D002A01AB /* P_200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P_200.png; sourceTree = "<group>"; };
+		3B47088C1F9A574E002A01AB /* P_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P_50.png; sourceTree = "<group>"; };
+		3B47088D1F9A574E002A01AB /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		3B47088E1F9A574E002A01AB /* I'm sure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "I'm sure.png"; sourceTree = "<group>"; };
+		3B47088F1F9A574E002A01AB /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		3B4708901F9A574E002A01AB /* bgm2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgm2.png; sourceTree = "<group>"; };
+		3B4708921F9A574E002A01AB /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
+		3B4708931F9A574F002A01AB /* bgm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgm.png; sourceTree = "<group>"; };
+		3B4708BF1F9A5F52002A01AB /* Rule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rule.cpp; sourceTree = "<group>"; };
+		3B4708C01F9A5F52002A01AB /* Rule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rule.hpp; sourceTree = "<group>"; };
+		3B4708C31F9A678D002A01AB /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = "<group>"; };
+		3B4708C61F9A6D45002A01AB /* darksky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darksky.png; sourceTree = "<group>"; };
 		3BAD2B691F94928D00ED63E5 /* monsterball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monsterball.png; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
@@ -298,6 +371,25 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3B4708C61F9A6D45002A01AB /* darksky.png */,
+				3B4708C31F9A678D002A01AB /* name.png */,
+				3B4708931F9A574F002A01AB /* bgm.png */,
+				3B4708901F9A574E002A01AB /* bgm2.png */,
+				3B4708841F9A574C002A01AB /* exit.png */,
+				3B47088F1F9A574E002A01AB /* fonts */,
+				3B47088E1F9A574E002A01AB /* I'm sure.png */,
+				3B4708891F9A574D002A01AB /* next.png */,
+				3B47088C1F9A574E002A01AB /* P_50.png */,
+				3B4708871F9A574D002A01AB /* P_100.png */,
+				3B4708861F9A574D002A01AB /* P_150.png */,
+				3B47088B1F9A574D002A01AB /* P_200.png */,
+				3B4708811F9A574C002A01AB /* res */,
+				3B4708921F9A574E002A01AB /* return.png */,
+				3B4708831F9A574C002A01AB /* rule.png */,
+				3B4708801F9A574C002A01AB /* RulePhoto.png */,
+				3B47088D1F9A574E002A01AB /* start.png */,
+				3B4708821F9A574C002A01AB /* モンスターボールをホッケーでしてみた.png */,
+				3B4708851F9A574C002A01AB /* モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png */,
 				3B13BFBD1F965C03009DBAEA /* pointer.png */,
 				3BAD2B691F94928D00ED63E5 /* monsterball.png */,
 				3B00393C1F8DC8DB007C8759 /* P_0.png */,
@@ -311,12 +403,20 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3B4708781F9A5736002A01AB /* RankInNameLayer.cpp */,
+				3B4708731F9A5736002A01AB /* RankInNameLayer.hpp */,
+				3B47087A1F9A5737002A01AB /* ResultLayer.cpp */,
+				3B47087B1F9A5737002A01AB /* ResultLayer.hpp */,
+				3B4708791F9A5736002A01AB /* StartGameLayer.cpp */,
+				3B4708751F9A5736002A01AB /* StartGameLayer.hpp */,
+				3B4708771F9A5736002A01AB /* StartLayer.cpp */,
+				3B4708761F9A5736002A01AB /* StartLayer.hpp */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				3B1A1FE11F8D04D20099BEF0 /* GameLayer.cpp */,
 				3B1A1FE21F8D04D20099BEF0 /* GameLayer.hpp */,
-				3B13BFB81F95E3C0009DBAEA /* ScoreHistory.cpp */,
-				3B13BFB91F95E3C0009DBAEA /* ScoreHistory.hpp */,
+				3B4708BF1F9A5F52002A01AB /* Rule.cpp */,
+				3B4708C01F9A5F52002A01AB /* Rule.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -471,28 +571,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4708A71F9A574F002A01AB /* bgm.png in Resources */,
+				3B47089F1F9A574F002A01AB /* P_200.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				3B4708991F9A574F002A01AB /* モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png in Resources */,
+				3B4708971F9A574F002A01AB /* rule.png in Resources */,
+				3B4708941F9A574F002A01AB /* RulePhoto.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				3B4708981F9A574F002A01AB /* exit.png in Resources */,
 				3B13BFBE1F965C03009DBAEA /* pointer.png in Resources */,
+				3B4708A61F9A574F002A01AB /* return.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
+				3B4708A41F9A574F002A01AB /* bgm2.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				3B4708951F9A574F002A01AB /* res in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				3B47089D1F9A574F002A01AB /* next.png in Resources */,
 				3BAD2B6B1F94928E00ED63E5 /* monsterball.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				3B47089A1F9A574F002A01AB /* P_150.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
+				3B4708A21F9A574F002A01AB /* I'm sure.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				3B47089B1F9A574F002A01AB /* P_100.png in Resources */,
+				3B4708C71F9A6D45002A01AB /* darksky.png in Resources */,
 				3B00393E1F8DC8DB007C8759 /* P_0.png in Resources */,
+				3B4708A31F9A574F002A01AB /* fonts in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
+				3B4708A01F9A574F002A01AB /* P_50.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
+				3B4708A11F9A574F002A01AB /* start.png in Resources */,
+				3B4708961F9A574F002A01AB /* モンスターボールをホッケーでしてみた.png in Resources */,
+				3B4708C41F9A678D002A01AB /* name.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,10 +620,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4708C51F9A678D002A01AB /* name.png in Resources */,
+				3B4708B21F9A596E002A01AB /* P_150.png in Resources */,
+				3B4708B81F9A59A8002A01AB /* モンスターボールをホッケーでしてみた.png in Resources */,
+				3B4708BC1F9A5A9C002A01AB /* P_50.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				3B4708B51F9A5983002A01AB /* rule.png in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
+				3B4708B01F9A5962002A01AB /* next.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
+				3B4708C81F9A6D45002A01AB /* darksky.png in Resources */,
+				3B4708B41F9A5981002A01AB /* return.png in Resources */,
+				3B4708BE1F9A5AA2002A01AB /* P_100.png in Resources */,
+				3B4708B91F9A59AD002A01AB /* モンスターボールをホッケーでしてみたバナナの国の王様はババナを食べながら冠をかぶる.png in Resources */,
+				3B4708AF1F9A595F002A01AB /* I'm sure.png in Resources */,
 				3B13BFBF1F965C03009DBAEA /* pointer.png in Resources */,
+				3B4708B71F9A59A5002A01AB /* start.png in Resources */,
+				3B4708BB1F9A59B4002A01AB /* P_0.png in Resources */,
+				3B4708AC1F9A5954002A01AB /* bgm.png in Resources */,
+				3B4708B31F9A5974002A01AB /* P_200.png in Resources */,
+				3B4708AE1F9A5959002A01AB /* exit.png in Resources */,
+				3B4708AD1F9A5957002A01AB /* bgm2.png in Resources */,
+				3B4708B61F9A5986002A01AB /* RulePhoto.png in Resources */,
+				3B4708BA1F9A59B2002A01AB /* monsterball.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,9 +656,13 @@
 				3B1A1FE31F8D04D20099BEF0 /* GameLayer.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				3B13BFBA1F95E3C0009DBAEA /* ScoreHistory.cpp in Sources */,
+				3B47087C1F9A5737002A01AB /* StartLayer.cpp in Sources */,
+				3B47087D1F9A5737002A01AB /* RankInNameLayer.cpp in Sources */,
+				3B47087F1F9A5737002A01AB /* ResultLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				3B47087E1F9A5737002A01AB /* StartGameLayer.cpp in Sources */,
+				3B4708C11F9A5F52002A01AB /* Rule.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,9 +671,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				3B4708C21F9A5F52002A01AB /* Rule.cpp in Sources */,
+				3B4708A91F9A58E2002A01AB /* ResultLayer.cpp in Sources */,
+				3B4708AA1F9A58E5002A01AB /* StartGameLayer.cpp in Sources */,
+				3B4708A81F9A58DD002A01AB /* RankInNameLayer.cpp in Sources */,
+				3B4708AB1F9A58E7002A01AB /* StartLayer.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				3B1A1FE41F8D04D20099BEF0 /* GameLayer.cpp in Sources */,
-				3B13BFBB1F95E3C0009DBAEA /* ScoreHistory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

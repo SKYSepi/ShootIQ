@@ -24,7 +24,7 @@
 
 #include "AppDelegate.h"
 #include "cocos2d.h"
-#include "ScoreHistory.hpp"
+
 #include <iostream>
 
 USING_NS_CC;
